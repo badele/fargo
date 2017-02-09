@@ -1,7 +1,7 @@
 all: deps build
 
 deps:
-	go get -u github.com/JoelOtter/termloop
+	go get -u github.com/badele/termloop
 
 build:
 	go build
