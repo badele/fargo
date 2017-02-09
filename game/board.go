@@ -1,4 +1,4 @@
-package level
+package game
 
 import (
 	tl "github.com/badele/termloop"
@@ -13,19 +13,19 @@ func InitBoard(game *tl.Game, level *tl.BaseLevel) {
 	termwidth, termheight := game.InitialTermSize()
 
 	// Right information block
-	mybox := box.NewFrame(termwidth- Infowidth, 0, Infowidth, termheight- Chatheight, tl.ColorBlue, tl.ColorWhite, box.LineDoubleBorder, false)
+	mybox := box.NewFrame(termwidth-Infowidth, 0, Infowidth, termheight-Chatheight, tl.ColorBlue, tl.ColorWhite, box.LineDoubleBorder, false)
 	mybox.SetTitle(" Information ", box.AlignHCenter)
 	mybox.LevelFollow(level)
 	level.AddEntity(mybox)
 
 	// Bottom chat panel
-	mybox = box.NewFrame(0, termheight- Chatheight, termwidth, Chatheight, tl.ColorBlue, tl.ColorWhite, box.LineDoubleBorder, false)
+	mybox = box.NewFrame(0, termheight-Chatheight, termwidth, Chatheight, tl.ColorBlue, tl.ColorWhite, box.LineDoubleBorder, false)
 	mybox.SetTitle(" Chat ", box.AlignHCenter)
 	mybox.LevelFollow(level)
 	level.AddEntity(mybox)
 
 	// Bottom text area
-	mytext := box.NewTextArea(1, termheight- Chatheight +1, termwidth-2, termheight-2, "", tl.ColorBlue, tl.ColorWhite, box.AlignNone)
+	mytext := box.NewTextArea(1, termheight-Chatheight+1, termwidth-2, termheight-2, "", tl.ColorBlue, tl.ColorWhite, box.AlignNone)
 	mytext.SetTypewriterDuration(100)
 	mytext.SetText("This story takes place in the year 3000, You have a spacecraft for navigate", box.AlignNone)
 	mytext.LevelFollow(level)
